@@ -1,0 +1,121 @@
+.profile-layout {
+  max-width: 900px;
+}
+
+.profile-summary {
+  display: grid;
+  gap: 20px;
+}
+
+.summary-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.avatar-hero {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.avatar-badge {
+  width: 92px;
+  height: 92px;
+  border-radius: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(255, 246, 228, 0.72));
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--avatar-glow) 35%, transparent);
+}
+
+:host-context([data-theme='dark']) .avatar-badge {
+  background:
+    radial-gradient(circle at top, rgba(228, 250, 255, 0.92), rgba(121, 233, 255, 0.84) 45%, rgba(91, 167, 255, 0.9));
+  color: #072b42;
+}
+
+.profile-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.bio-copy {
+  margin: 0;
+}
+
+.recommendation-card {
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+:host-context([data-theme='dark']) .recommendation-card {
+  background: linear-gradient(180deg, rgba(16, 37, 57, 0.88), rgba(10, 25, 40, 0.94));
+}
+
+.form-card {
+  display: grid;
+  gap: 22px;
+}
+
+.dual-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.avatar-choice {
+  position: relative;
+}
+
+.avatar-card {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding: 16px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.8);
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+:host-context([data-theme='dark']) .avatar-card {
+  background: linear-gradient(180deg, rgba(17, 39, 60, 0.88), rgba(10, 26, 41, 0.94));
+}
+
+.avatar-choice:hover .avatar-card {
+  transform: translateY(-1px);
+}
+
+.avatar-choice .choice-input:checked + .avatar-card {
+  border-color: var(--accent);
+  box-shadow: 0 16px 28px color-mix(in srgb, var(--avatar-glow) 28%, transparent);
+}
+
+.avatar-icon {
+  font-size: 1.8rem;
+}
+
+.loading-card {
+  text-align: center;
+}
+
+@media (max-width: 1060px) {
+  .dual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,63 @@
+<section class="quest-onboarding">
+  <div class="quest-onboarding__scene" aria-hidden="true">
+    <div class="quest-onboarding__grid"></div>
+    <div class="quest-onboarding__glow quest-onboarding__glow--cyan"></div>
+    <div class="quest-onboarding__glow quest-onboarding__glow--lime"></div>
+    <div class="quest-onboarding__glow quest-onboarding__glow--magenta"></div>
+    <div class="quest-onboarding__spark quest-onboarding__spark--one"></div>
+    <div class="quest-onboarding__spark quest-onboarding__spark--two"></div>
+    <div class="quest-onboarding__spark quest-onboarding__spark--three"></div>
+  </div>
+
+  <div class="quest-onboarding__progress" aria-label="Question progress">
+    <span
+      class="quest-onboarding__progress-segment"
+      *ngFor="let step of steps; let index = index"
+      [class.is-active]="index <= currentStepIndex()"
+    ></span>
+  </div>
+
+  <header class="quest-onboarding__topbar">
+    <button class="quest-onboarding__previous" type="button" (click)="goPrevious()">
+      <span class="quest-onboarding__previous-arrow">←</span>
+      <span>Previous</span>
+    </button>
+
+    <a class="quest-onboarding__brand" routerLink="/">STUDYQUEST</a>
+  </header>
+
+  <form class="quest-onboarding__content" [formGroup]="form">
+    <p class="quest-onboarding__count">
+      Question {{ currentStepIndex() + 1 }} / {{ steps.length }}
+    </p>
+
+    <h1 class="quest-onboarding__title">{{ currentStep().question }}</h1>
+
+    <div class="quest-onboarding__options">
+      <label class="quest-onboarding__option" *ngFor="let option of currentStep().options">
+        <input
+          class="quest-onboarding__option-input"
+          type="radio"
+          [checked]="isSelected(option.value)"
+          (change)="selectOption(option.value)"
+        />
+        <span class="quest-onboarding__option-indicator"></span>
+        <span class="quest-onboarding__option-label">{{ option.label }}</span>
+      </label>
+    </div>
+
+    <p class="feedback error quest-onboarding__error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+    <div class="quest-onboarding__actions">
+      <button
+        class="quest-onboarding__next"
+        type="button"
+        (click)="goNext()"
+        [disabled]="isSubmitting()"
+      >
+        <span>{{ isLastStep() ? (isSubmitting() ? 'Saving...' : 'Open Dashboard') : 'Next Question' }}</span>
+        <span class="quest-onboarding__next-arrow">→</span>
+      </button>
+    </div>
+  </form>
+</section>
