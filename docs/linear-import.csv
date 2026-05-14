@@ -1,0 +1,135 @@
+Title,Description,Issue Type,Priority,Labels,Project,Milestone,Parent
+Epic 1: Product Foundation and Onboarding,"Establish the core user account, onboarding, and profile foundation for StudyQuest.",Epic,P0,"epic,mvp",StudyQuest MVP,Foundation,
+User Story 1.1: Account creation and onboarding,"As a new user, I want to create an account and complete onboarding so that StudyQuest can personalize my study journey.",Story,P0,"story,mvp",StudyQuest MVP,Foundation,Epic 1: Product Foundation and Onboarding
+Build sign up, sign in, and password reset flows,"Implement authentication entry points and recovery flow.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Foundation,User Story 1.1: Account creation and onboarding
+Create onboarding questionnaire for goals, study style, subjects, and challenges,"Collect initial personalization inputs during onboarding.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Foundation,User Story 1.1: Account creation and onboarding
+Save onboarding profile and preferences,"Persist onboarding answers and user defaults.",Task,P0,"task,backend,mvp",StudyQuest MVP,Foundation,User Story 1.1: Account creation and onboarding
+Create first-time user welcome flow,"Guide users into their first recommended action after onboarding.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Foundation,User Story 1.1: Account creation and onboarding
+User Story 1.2: Profile and preferences,"As a user, I want my profile and preferences saved so that my dashboard and recommendations feel personalized.",Story,P0,"story,mvp",StudyQuest MVP,Foundation,Epic 1: Product Foundation and Onboarding
+Create user profile model,"Define persistent profile fields and defaults.",Task,P0,"task,backend,mvp",StudyQuest MVP,Foundation,User Story 1.2: Profile and preferences
+Add editable preferences page,"Allow users to manage profile preferences after onboarding.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Foundation,User Story 1.2: Profile and preferences
+Support avatar, theme, and study goal settings,"Add initial customization fields for personalization.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Foundation,User Story 1.2: Profile and preferences
+Epic 2: Progressive Learning System,"Create the level-based learning journey for evidence-based study methods.",Epic,P0,"epic,mvp",StudyQuest MVP,Core Learning Loop,
+User Story 2.1: Structured study levels,"As a learner, I want structured study levels so that I can learn proven techniques step by step.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 2: Progressive Learning System
+Define level system architecture,"Model levels, lessons, missions, and completion logic.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.1: Structured study levels
+Create lesson, mission, and completion models,"Create data models for learning content and user progress.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.1: Structured study levels
+Build level progression UI,"Create a visual level map and progress states.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.1: Structured study levels
+Add level completion and reward logic,"Complete levels and trigger unlocks and progress updates.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.1: Structured study levels
+User Story 2.2: Initial study method content,"As a learner, I want content for the first study methods so that I can start improving immediately.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 2: Progressive Learning System
+Create Active Recall level,"Produce content and missions for Active Recall Foundations.",Task,P0,"task,content,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.2: Initial study method content
+Create Spaced Repetition level,"Produce content and missions for Spaced Repetition Basics.",Task,P0,"task,content,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.2: Initial study method content
+Create Pomodoro level,"Produce content and missions for Pomodoro and Focus Management.",Task,P0,"task,content,mvp",StudyQuest MVP,Core Learning Loop,User Story 2.2: Initial study method content
+Epic 3: Tool Unlocking System,"Reward user progress by unlocking useful study tools over time.",Epic,P0,"epic,mvp",StudyQuest MVP,Core Learning Loop,
+User Story 3.1: Tool unlock flow,"As a user, I want to unlock tools as I progress so that the app feels rewarding and guided.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 3: Tool Unlocking System
+Build unlock rules engine,"Define and evaluate unlock conditions for tools and rewards.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 3.1: Tool unlock flow
+Map levels to tool rewards,"Associate level completion milestones with unlocked tools.",Task,P0,"task,product,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 3.1: Tool unlock flow
+Create unlock celebration UI,"Show rewarding in-product moments when users unlock features.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 3.1: Tool unlock flow
+Store unlocked tool state per user,"Persist available tools and reward history by user.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 3.1: Tool unlock flow
+User Story 3.2: Unlock visibility and motivation,"As a user, I want to view what I have unlocked and what comes next so that I stay motivated.",Story,P1,"story",StudyQuest MVP,Engagement and Retention,Epic 3: Tool Unlocking System
+Create rewards and unlocks inventory page,"Display unlocked and upcoming rewards in a dedicated screen.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 3.2: Unlock visibility and motivation
+Show upcoming unlocks in dashboard and level map,"Expose next rewards in key user flows.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 3.2: Unlock visibility and motivation
+Add achievement history,"Show past unlocks and milestones in a historical log.",Task,P1,"task,frontend,backend",StudyQuest MVP,Engagement and Retention,User Story 3.2: Unlock visibility and motivation
+Epic 4: Personalized Study Dashboard,"Create a central home screen that helps users start and sustain study sessions.",Epic,P0,"epic,mvp",StudyQuest MVP,Core Learning Loop,
+User Story 4.1: Dashboard essentials,"As a user, I want a dashboard with my most important tools and progress so that I can begin studying quickly.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 4: Personalized Study Dashboard
+Build dashboard layout,"Create the default dashboard structure and responsive layout.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 4.1: Dashboard essentials
+Add daily goals, streaks, and progress widgets,"Expose core motivational widgets on the dashboard.",Task,P0,"task,frontend,analytics,mvp",StudyQuest MVP,Core Learning Loop,User Story 4.1: Dashboard essentials
+Add recent activity and recommended next action widgets,"Help users resume momentum with contextual guidance.",Task,P0,"task,frontend,analytics,mvp",StudyQuest MVP,Core Learning Loop,User Story 4.1: Dashboard essentials
+User Story 4.2: Dashboard customization,"As a user, I want to customize my dashboard so that it matches how I study.",Story,P1,"story",StudyQuest MVP,Engagement and Retention,Epic 4: Personalized Study Dashboard
+Add drag-and-drop widget arrangement,"Enable flexible dashboard layout customization.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 4.2: Dashboard customization
+Allow widget hide/show behavior,"Support a simplified and user-controlled dashboard.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 4.2: Dashboard customization
+Save per-user dashboard layout,"Persist custom dashboard configuration.",Task,P1,"task,backend,frontend",StudyQuest MVP,Engagement and Retention,User Story 4.2: Dashboard customization
+Epic 5: Focus Tools and Session Management,"Provide in-app session tools that support focused study time.",Epic,P0,"epic,mvp",StudyQuest MVP,Core Learning Loop,
+User Story 5.1: Pomodoro timer,"As a learner, I want a Pomodoro timer so that I can run focused study sessions.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 5: Focus Tools and Session Management
+Build Pomodoro timer UI,"Create the timer interface and countdown states.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 5.1: Pomodoro timer
+Support work, short break, and long break sessions,"Implement default timer modes and transitions.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 5.1: Pomodoro timer
+Save timer session history,"Persist completed timer sessions for analytics and streaks.",Task,P0,"task,backend,analytics,mvp",StudyQuest MVP,Core Learning Loop,User Story 5.1: Pomodoro timer
+User Story 5.2: Focus mode,"As a learner, I want focus mode tools so that I can reduce distractions while studying.",Story,P1,"story",StudyQuest MVP,Engagement and Retention,Epic 5: Focus Tools and Session Management
+Create focus mode UI,"Provide a minimal study environment for active sessions.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 5.2: Focus mode
+Add optional task-only or timer-only view,"Support different study styles in focus mode.",Task,P1,"task,frontend",StudyQuest MVP,Engagement and Retention,User Story 5.2: Focus mode
+Design future browser and device distraction-blocking hooks,"Document extension points for future blocker integrations.",Task,P1,"task,backend,product",StudyQuest MVP,Engagement and Retention,User Story 5.2: Focus mode
+Epic 6: Smart Flashcard System,"Build flashcard creation and review features powered by spaced repetition.",Epic,P0,"epic,mvp",StudyQuest MVP,Core Learning Loop,
+User Story 6.1: Flashcard creation,"As a learner, I want to create flashcards so that I can study course material actively.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 6: Smart Flashcard System
+Build flashcard deck management,"Create deck organization and listing functionality.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.1: Flashcard creation
+Build flashcard creation and editing flows,"Support manual authoring and editing of cards.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.1: Flashcard creation
+Support tags, subjects, and difficulty metadata,"Store metadata needed for filtering and later recommendations.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.1: Flashcard creation
+User Story 6.2: Adaptive review scheduling,"As a learner, I want an adaptive review system so that I review cards at the right time.",Story,P0,"story,mvp",StudyQuest MVP,Core Learning Loop,Epic 6: Smart Flashcard System
+Implement spaced repetition scheduling model,"Build the initial scheduling algorithm and data model.",Task,P0,"task,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.2: Adaptive review scheduling
+Build review session flow,"Create the study loop for reviewing due flashcards.",Task,P0,"task,frontend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.2: Adaptive review scheduling
+Capture review difficulty feedback,"Collect user ratings after each review to tune scheduling.",Task,P0,"task,frontend,backend,mvp",StudyQuest MVP,Core Learning Loop,User Story 6.2: Adaptive review scheduling
+User Story 6.3: AI-assisted flashcards,"As a learner, I want AI help creating flashcards so that preparing materials is faster.",Story,P1,"story,ai",StudyQuest MVP,AI and Personalization,Epic 6: Smart Flashcard System
+Add AI-assisted flashcard generation flow,"Support AI-generated flashcards from pasted notes.",Task,P1,"task,frontend,backend,ai",StudyQuest MVP,AI and Personalization,User Story 6.3: AI-assisted flashcards
+Support pasted notes or text input,"Provide user input flow for AI generation.",Task,P1,"task,frontend,ai",StudyQuest MVP,AI and Personalization,User Story 6.3: AI-assisted flashcards
+Add human review before save,"Ensure users confirm generated cards before persistence.",Task,P1,"task,frontend,ai",StudyQuest MVP,AI and Personalization,User Story 6.3: AI-assisted flashcards
+Epic 7: Rewards, Achievements, and Motivation,"Create systems that reinforce consistency and celebrate progress.",Epic,P0,"epic,mvp",StudyQuest MVP,Engagement and Retention,
+User Story 7.1: Achievements and streaks,"As a user, I want badges, streaks, and milestone rewards so that I stay motivated over time.",Story,P0,"story,mvp",StudyQuest MVP,Engagement and Retention,Epic 7: Rewards, Achievements, and Motivation
+Build achievement engine,"Evaluate milestone conditions and award achievements.",Task,P0,"task,backend,mvp",StudyQuest MVP,Engagement and Retention,User Story 7.1: Achievements and streaks
+Create streak system,"Track daily and weekly continuity metrics.",Task,P0,"task,backend,analytics,mvp",StudyQuest MVP,Engagement and Retention,User Story 7.1: Achievements and streaks
+Create badge library and milestone definitions,"Define visual and rules content for milestone rewards.",Task,P0,"task,design,product,mvp",StudyQuest MVP,Engagement and Retention,User Story 7.1: Achievements and streaks
+User Story 7.2: Progress visualizations,"As a user, I want progress visualizations so that I can see my growth clearly.",Story,P1,"story,analytics",StudyQuest MVP,Engagement and Retention,Epic 7: Rewards, Achievements, and Motivation
+Create study activity charts,"Show study volume trends over time.",Task,P1,"task,frontend,analytics",StudyQuest MVP,Engagement and Retention,User Story 7.2: Progress visualizations
+Show weekly and monthly streak visualizations,"Visualize streak continuity in a motivating way.",Task,P1,"task,frontend,analytics",StudyQuest MVP,Engagement and Retention,User Story 7.2: Progress visualizations
+Show level progress and mastery trends,"Expose mastery and content progression trends.",Task,P1,"task,frontend,analytics",StudyQuest MVP,Engagement and Retention,User Story 7.2: Progress visualizations
+Epic 8: Social and Accountability Features,"Add lightweight social mechanisms that improve motivation and consistency.",Epic,P1,"epic,social",StudyQuest MVP,Engagement and Retention,
+User Story 8.1: Progress sharing,"As a learner, I want to share progress with friends or groups so that I feel accountable.",Story,P1,"story,social",StudyQuest MVP,Engagement and Retention,Epic 8: Social and Accountability Features
+Create progress sharing model,"Model shared updates and audience visibility.",Task,P1,"task,backend,social",StudyQuest MVP,Engagement and Retention,User Story 8.1: Progress sharing
+Build lightweight social feed or updates view,"Provide a feed of study progress updates.",Task,P1,"task,frontend,social",StudyQuest MVP,Engagement and Retention,User Story 8.1: Progress sharing
+Add privacy controls for shared progress,"Allow users to control who sees their updates.",Task,P1,"task,frontend,backend,social",StudyQuest MVP,Engagement and Retention,User Story 8.1: Progress sharing
+User Story 8.2: Study buddies and accountability groups,"As a learner, I want to find a study buddy or accountability group so that I can stay consistent.",Story,P2,"story,social",StudyQuest MVP,Beta Launch,Epic 8: Social and Accountability Features
+Build study buddy matching flow,"Match users using goals, schedule, or subject fit.",Task,P2,"task,frontend,backend,social",StudyQuest MVP,Beta Launch,User Story 8.2: Study buddies and accountability groups
+Build accountability group model,"Create group entities and membership rules.",Task,P2,"task,backend,social",StudyQuest MVP,Beta Launch,User Story 8.2: Study buddies and accountability groups
+Add group goals and check-ins,"Support recurring group accountability rituals.",Task,P2,"task,frontend,backend,social",StudyQuest MVP,Beta Launch,User Story 8.2: Study buddies and accountability groups
+User Story 8.3: Challenges and competition,"As a learner, I want challenge and competition modes so that studying feels more engaging.",Story,P2,"story,social",StudyQuest MVP,Beta Launch,Epic 8: Social and Accountability Features
+Create study sprint challenge model,"Define a challenge object with scoring and time windows.",Task,P2,"task,backend,social",StudyQuest MVP,Beta Launch,User Story 8.3: Challenges and competition
+Build leaderboard or challenge progress UI,"Visualize standings and challenge progression.",Task,P2,"task,frontend,social",StudyQuest MVP,Beta Launch,User Story 8.3: Challenges and competition
+Add invite or join challenge flow,"Enable users to participate in social challenges.",Task,P2,"task,frontend,backend,social",StudyQuest MVP,Beta Launch,User Story 8.3: Challenges and competition
+Epic 9: AI Recommendations and Personalization,"Provide personalized recommendations and coaching based on learning behavior.",Epic,P1,"epic,ai",StudyQuest MVP,AI and Personalization,
+User Story 9.1: Personalized recommendations,"As a learner, I want personalized recommendations so that I use the study methods that fit me best.",Story,P1,"story,ai",StudyQuest MVP,AI and Personalization,Epic 9: AI Recommendations and Personalization
+Build recommendation rules engine for MVP,"Create non-LLM recommendation rules using user behavior and progress.",Task,P1,"task,backend,ai",StudyQuest MVP,AI and Personalization,User Story 9.1: Personalized recommendations
+Add recommendation cards to dashboard,"Surface recommendations directly on the home experience.",Task,P1,"task,frontend,ai",StudyQuest MVP,AI and Personalization,User Story 9.1: Personalized recommendations
+Use session, progress, and review data as inputs,"Connect learning signals to recommendation logic.",Task,P1,"task,backend,analytics,ai",StudyQuest MVP,AI and Personalization,User Story 9.1: Personalized recommendations
+User Story 9.2: AI coaching,"As a learner, I want smarter AI coaching over time so that the app helps me improve my habits.",Story,P2,"story,ai",StudyQuest MVP,Beta Launch,Epic 9: AI Recommendations and Personalization
+Build AI coaching service layer,"Create the service boundary for generating coaching guidance.",Task,P2,"task,backend,ai",StudyQuest MVP,Beta Launch,User Story 9.2: AI coaching
+Add session summaries and habit suggestions,"Generate user-facing summaries after study activity.",Task,P2,"task,frontend,backend,ai",StudyQuest MVP,Beta Launch,User Story 9.2: AI coaching
+Flag ineffective patterns such as missed reviews or burnout pacing,"Highlight behavior patterns that may require intervention.",Task,P2,"task,backend,analytics,ai",StudyQuest MVP,Beta Launch,User Story 9.2: AI coaching
+Epic 10: Analytics and Insights,"Track product and learning behavior so the team can improve retention and user outcomes.",Epic,P0,"epic,analytics,mvp",StudyQuest MVP,Foundation,
+User Story 10.1: Learner analytics,"As a learner, I want study session analytics so that I understand what is helping me improve.",Story,P1,"story,analytics",StudyQuest MVP,Engagement and Retention,Epic 10: Analytics and Insights
+Track session duration, completion, and method usage,"Collect core study activity signals.",Task,P1,"task,backend,analytics",StudyQuest MVP,Engagement and Retention,User Story 10.1: Learner analytics
+Build personal analytics dashboard,"Create an end-user insights experience.",Task,P1,"task,frontend,analytics",StudyQuest MVP,Engagement and Retention,User Story 10.1: Learner analytics
+Show method effectiveness trends,"Translate raw activity into useful insight.",Task,P1,"task,frontend,analytics",StudyQuest MVP,Engagement and Retention,User Story 10.1: Learner analytics
+User Story 10.2: Product analytics instrumentation,"As a product team, we want product analytics so that we can improve retention and activation.",Story,P0,"story,analytics,mvp",StudyQuest MVP,Foundation,Epic 10: Analytics and Insights
+Implement analytics event taxonomy,"Define event names, properties, and ownership.",Task,P0,"task,analytics,mvp",StudyQuest MVP,Foundation,User Story 10.2: Product analytics instrumentation
+Track activation funnel and retention metrics,"Measure onboarding, activation, and returning behavior.",Task,P0,"task,analytics,mvp",StudyQuest MVP,Foundation,User Story 10.2: Product analytics instrumentation
+Build internal dashboard or external analytics integration,"Connect product events to a reporting surface.",Task,P0,"task,analytics,backend,mvp",StudyQuest MVP,Foundation,User Story 10.2: Product analytics instrumentation
+Epic 11: Cross-Platform Sync and Offline Mode,"Extend the product for reliable multi-device usage and intermittent connectivity.",Epic,P1,"epic",StudyQuest MVP,AI and Personalization,
+User Story 11.1: Cross-device sync,"As a user, I want my progress synced across devices so that I can study anywhere.",Story,P1,"story",StudyQuest MVP,AI and Personalization,Epic 11: Cross-Platform Sync and Offline Mode
+Design sync architecture,"Define sync boundaries, entities, and conflict handling.",Task,P1,"task,backend",StudyQuest MVP,AI and Personalization,User Story 11.1: Cross-device sync
+Sync progress, dashboard, flashcards, and settings,"Enable core objects to remain consistent across devices.",Task,P1,"task,backend,frontend",StudyQuest MVP,AI and Personalization,User Story 11.1: Cross-device sync
+Resolve conflicts gracefully,"Handle simultaneous edits with predictable outcomes.",Task,P1,"task,backend",StudyQuest MVP,AI and Personalization,User Story 11.1: Cross-device sync
+User Story 11.2: Offline mode,"As a user, I want offline access to core study features so that I can keep working without internet.",Story,P2,"story",StudyQuest MVP,Beta Launch,Epic 11: Cross-Platform Sync and Offline Mode
+Add offline support for flashcards, tasks, and timers,"Cache essential study features for offline use.",Task,P2,"task,frontend,backend",StudyQuest MVP,Beta Launch,User Story 11.2: Offline mode
+Queue sync updates for later,"Persist outbound changes and replay them when back online.",Task,P2,"task,backend,frontend",StudyQuest MVP,Beta Launch,User Story 11.2: Offline mode
+Show offline status and sync states,"Communicate connectivity and sync behavior clearly to users.",Task,P2,"task,frontend",StudyQuest MVP,Beta Launch,User Story 11.2: Offline mode
+Epic 12: Integrations,"Connect StudyQuest with existing note-taking and planning tools.",Epic,P2,"epic",StudyQuest MVP,Beta Launch,
+User Story 12.1: External study tool integrations,"As a user, I want to connect my external study tools so that StudyQuest fits my existing workflow.",Story,P2,"story",StudyQuest MVP,Beta Launch,Epic 12: Integrations
+Design integrations framework,"Create the architectural pattern for third-party connections.",Task,P2,"task,backend",StudyQuest MVP,Beta Launch,User Story 12.1: External study tool integrations
+Add Notion integration exploration,"Investigate Notion sync opportunities and constraints.",Task,P2,"task,backend",StudyQuest MVP,Beta Launch,User Story 12.1: External study tool integrations
+Add OneNote integration exploration,"Investigate OneNote sync opportunities and constraints.",Task,P2,"task,backend",StudyQuest MVP,Beta Launch,User Story 12.1: External study tool integrations
+Add Google Calendar sync for study sessions,"Support session scheduling alignment with calendar workflows.",Task,P2,"task,backend,frontend",StudyQuest MVP,Beta Launch,User Story 12.1: External study tool integrations
+Epic 13: Premium and Monetization,"Define monetization surfaces without undermining the core study value proposition.",Epic,P1,"epic,premium",StudyQuest MVP,AI and Personalization,
+User Story 13.1: Premium upgrade path,"As a user, I want a clear premium upgrade path so that I understand what extra value I get.",Story,P1,"story,premium",StudyQuest MVP,AI and Personalization,Epic 13: Premium and Monetization
+Define free vs premium feature gating,"Decide which features are part of paid plans.",Task,P1,"task,product,premium",StudyQuest MVP,AI and Personalization,User Story 13.1: Premium upgrade path
+Build premium upsell surfaces,"Add upgrade messaging in the right moments.",Task,P1,"task,frontend,premium",StudyQuest MVP,AI and Personalization,User Story 13.1: Premium upgrade path
+Add subscription management,"Support plan changes and billing state handling.",Task,P1,"task,backend,frontend,premium",StudyQuest MVP,AI and Personalization,User Story 13.1: Premium upgrade path
+User Story 13.2: Cosmetic customization,"As a user, I want cosmetic customization so that I can express my identity in the app.",Story,P2,"story,premium",StudyQuest MVP,Beta Launch,Epic 13: Premium and Monetization
+Build themes, avatars, and badge cosmetics,"Create the first customizable cosmetic assets.",Task,P2,"task,frontend,design,premium",StudyQuest MVP,Beta Launch,User Story 13.2: Cosmetic customization
+Create cosmetic inventory and selection UI,"Allow users to browse and equip cosmetics.",Task,P2,"task,frontend,premium",StudyQuest MVP,Beta Launch,User Story 13.2: Cosmetic customization
+Support unlockable and purchasable cosmetics,"Connect cosmetics to reward and monetization flows.",Task,P2,"task,backend,premium",StudyQuest MVP,Beta Launch,User Story 13.2: Cosmetic customization
+Epic 14: B2B and Institutional Features,"Extend StudyQuest for educators and institutions.",Epic,P2,"epic,b2b",StudyQuest MVP,Beta Launch,
+User Story 14.1: Educator visibility,"As an educator or institution, I want visibility into learner progress so that I can support students better.",Story,P2,"story,b2b",StudyQuest MVP,Beta Launch,Epic 14: B2B and Institutional Features
+Define institution account model,"Create tenant and role structures for schools and educators.",Task,P2,"task,backend,b2b",StudyQuest MVP,Beta Launch,User Story 14.1: Educator visibility
+Build educator dashboard,"Create an admin experience for cohort monitoring.",Task,P2,"task,frontend,b2b",StudyQuest MVP,Beta Launch,User Story 14.1: Educator visibility
+Add cohort progress views,"Show summary performance at cohort level.",Task,P2,"task,frontend,backend,b2b",StudyQuest MVP,Beta Launch,User Story 14.1: Educator visibility
+User Story 14.2: Custom learning paths for institutions,"As an institution, I want custom learning paths so that StudyQuest fits my curriculum.",Story,P2,"story,b2b",StudyQuest MVP,Beta Launch,Epic 14: B2B and Institutional Features
+Build custom path authoring tools,"Allow institutions to create tailored learning paths.",Task,P2,"task,frontend,backend,b2b",StudyQuest MVP,Beta Launch,User Story 14.2: Custom learning paths for institutions
+Support institution-branded paths,"Add branding and identity controls for institutional content.",Task,P2,"task,frontend,b2b",StudyQuest MVP,Beta Launch,User Story 14.2: Custom learning paths for institutions
+Add assignment or cohort-based level delivery,"Deliver custom paths to the right learner groups.",Task,P2,"task,backend,b2b",StudyQuest MVP,Beta Launch,User Story 14.2: Custom learning paths for institutions

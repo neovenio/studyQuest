@@ -1,0 +1,142 @@
+{
+  "users": [
+    {
+      "id": "7a589972-8b04-4b0f-bc58-7bc8d8d6d94c",
+      "name": "neovenio",
+      "username": "neovenio",
+      "email": "shirinsana78@gmail.com",
+      "passwordHash": "8b11d96fe60853a8293746191468e803:691957efac7992ddf298ccb81f2f3578a600c2b645a5338b7266fe27994cba2ca9118970b5af1e5223418edb2baf654ea0e1390f98406d8ad1da051753149f6f",
+      "bio": "Bla Bla Bla",
+      "profilePicture": "comet",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "focus",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "15",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-02T21:31:30.643Z",
+      "updatedAt": "2026-05-02T21:34:01.731Z"
+    },
+    {
+      "id": "d48c3290-7e38-4a74-844b-0ff2085f801d",
+      "name": "User+1",
+      "username": "user-1",
+      "email": "user+1@gmail.com",
+      "passwordHash": "90674bf3e0e04f537411e230f08418b4:e4f176fc0a0096d672a2a2d45ca51f39f85436a31c9bdb9fc561021302d48a201274d72aeb2172170dc6d22933997f63ce143f947c3a6b1e1cb76d90cb90bcb3",
+      "bio": "",
+      "profilePicture": "comet",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-03T05:37:38.154Z",
+      "updatedAt": "2026-05-03T05:53:35.688Z",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "starting",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "15"
+    },
+    {
+      "id": "473b0b0e-2385-43c1-82b0-d04dce8ff502",
+      "name": "user+2",
+      "username": "user-2",
+      "email": "user+2@gmail.com",
+      "passwordHash": "5247b5fd65d350d0b1424280b30223d7:689f63fe2973a93af51ea084f2d13acc0fca8ca48375836e85436eed509d3e13433769e733abe78105505f29b1031edc72a69db7bf04830e318b091c8d3d1fff",
+      "bio": "",
+      "profilePicture": "fox",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-03T06:03:36.250Z",
+      "updatedAt": "2026-05-03T06:16:55.114Z",
+      "mainGoal": "focus-better",
+      "biggestStruggle": "focus",
+      "whatTheyStudy": "coding",
+      "preferredSessionLength": "15",
+      "themePreference": "light"
+    },
+    {
+      "id": "079f4b72-50d9-42ea-8426-ecb05f9e25a1",
+      "name": "user3",
+      "username": "user3",
+      "email": "user+3@gmail.com",
+      "passwordHash": "29bb4f269f9d2a6d1253b306ea8b0547:bbd92029298ea543c400f5637f17cc4f79d42af555dfd1d6d4cd5e5cef95411662507bece37d1a1621c842a82d3407f5452dd25cf8dd0971c658531414edd892",
+      "bio": "",
+      "profilePicture": "comet",
+      "themePreference": "system",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-03T06:25:16.012Z",
+      "updatedAt": "2026-05-03T06:40:01.410Z",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "focus",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "25"
+    },
+    {
+      "id": "395454d9-ee13-4431-af54-4a9573a0e179",
+      "name": "User+4",
+      "username": "user-4",
+      "email": "user+4@gmail.com",
+      "passwordHash": "bfe37f189d87790074b3732b106c1ad9:8623339d36139b640e459174427145acd5d7e1ff77d78203d2d56cac694900abab9e5783f6c0e702dc5e9fe0973c304a65abc2b0ff2ef04a8759ff640dbaae82",
+      "bio": "",
+      "profilePicture": "comet",
+      "themePreference": "system",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-14T05:53:07.575Z",
+      "updatedAt": "2026-05-14T06:10:04.785Z",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "focus",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "15"
+    },
+    {
+      "id": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "name": "Neovenio",
+      "username": "neovenio-2",
+      "email": "neovenio@gmail.com",
+      "passwordHash": "197a60de603a4c3d8f9d2238d74ffb22:662032fa963c4356c187386da1c7066be167d36973f2012f704a4abebe84b64562803f368694dc8b2c0720ebd69c628b15b2a4c0e83a7c1dff298ce3ef4c0d9d",
+      "bio": "",
+      "profilePicture": "comet",
+      "themePreference": "system",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-14T08:18:49.435Z",
+      "updatedAt": "2026-05-14T08:20:32.773Z",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "starting",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "15"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "720c8cc0a94b2c40fc21b266c6860d2d7992adf4cfa29e4a",
+      "userId": "7a589972-8b04-4b0f-bc58-7bc8d8d6d94c",
+      "createdAt": "2026-05-02T21:31:30.645Z"
+    },
+    {
+      "token": "404888b45be2dc078c480b1521ce55985b922e6c2cf75e95",
+      "userId": "473b0b0e-2385-43c1-82b0-d04dce8ff502",
+      "createdAt": "2026-05-03T06:03:36.257Z"
+    },
+    {
+      "token": "c1ca8dfafaf7f2fddad011532019c42ec2380dc8cdbfae14",
+      "userId": "d48c3290-7e38-4a74-844b-0ff2085f801d",
+      "createdAt": "2026-05-03T07:08:07.937Z"
+    },
+    {
+      "token": "1cd8f0d6d160b637e751e91e5fd4cdbf235c8c7421be0de1",
+      "userId": "395454d9-ee13-4431-af54-4a9573a0e179",
+      "createdAt": "2026-05-14T05:53:07.578Z"
+    },
+    {
+      "token": "8f69f81c502b4f38bf8ca2728d7714ec67aacfbcc743968e",
+      "userId": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "createdAt": "2026-05-14T08:18:49.436Z"
+    },
+    {
+      "token": "07d461cf2980a5343abae0cf6919472befd2c68ed0b48f69",
+      "userId": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "createdAt": "2026-05-14T08:20:05.324Z"
+    }
+  ]
+}

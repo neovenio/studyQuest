@@ -1,0 +1,306 @@
+<section class="quest-dashboard" *ngIf="!loading(); else loadingState">
+  <div class="quest-dashboard__scene" aria-hidden="true">
+    <div class="quest-dashboard__grid"></div>
+    <div class="quest-dashboard__glow quest-dashboard__glow--cyan"></div>
+    <div class="quest-dashboard__glow quest-dashboard__glow--lime"></div>
+    <div class="quest-dashboard__glow quest-dashboard__glow--magenta"></div>
+  </div>
+
+  <div class="quest-dashboard__error feedback error" *ngIf="errorMessage()">{{ errorMessage() }}</div>
+
+  <div class="quest-dashboard__layout" *ngIf="currentUser() as user" [class.is-nav-hidden]="navHidden()">
+    <aside class="quest-dashboard__sidebar" [class.is-hidden]="navHidden()">
+      <a class="quest-dashboard__brand" routerLink="/dashboard">
+        <span class="quest-dashboard__brand-mark" aria-hidden="true"></span>
+        <span class="quest-dashboard__brand-label">StudyQuest</span>
+      </a>
+
+      <div class="quest-dashboard__sidebar-group">
+        <p class="quest-dashboard__sidebar-title">Menu</p>
+
+        <a class="quest-dashboard__nav-item is-active" routerLink="/dashboard">
+          <span class="quest-dashboard__nav-icon">▦</span>
+          <span>Dashboard</span>
+        </a>
+
+        <button class="quest-dashboard__nav-item" type="button">
+          <span class="quest-dashboard__nav-icon">✦</span>
+          <span>Quest map</span>
+        </button>
+
+        <button class="quest-dashboard__nav-item" type="button">
+          <span class="quest-dashboard__nav-icon">⌘</span>
+          <span>Tool unlocks</span>
+        </button>
+
+        <button class="quest-dashboard__nav-item" type="button">
+          <span class="quest-dashboard__nav-icon">≈</span>
+          <span>Analytics</span>
+        </button>
+
+        <a class="quest-dashboard__nav-item" routerLink="/profile">
+          <span class="quest-dashboard__nav-icon">◎</span>
+          <span>Profile</span>
+        </a>
+      </div>
+
+      <div class="quest-dashboard__sidebar-group quest-dashboard__sidebar-group--general">
+        <p class="quest-dashboard__sidebar-title">General</p>
+
+        <button class="quest-dashboard__nav-item" type="button">
+          <span class="quest-dashboard__nav-icon">⚙</span>
+          <span>Settings</span>
+        </button>
+
+        <button class="quest-dashboard__nav-item" type="button">
+          <span class="quest-dashboard__nav-icon">?</span>
+          <span>Help</span>
+        </button>
+
+        <button class="quest-dashboard__nav-item" type="button" (click)="logout()">
+          <span class="quest-dashboard__nav-icon">↗</span>
+          <span>Log out</span>
+        </button>
+      </div>
+
+      <div class="quest-dashboard__download-card">
+        <span class="quest-dashboard__download-kicker">Starter route</span>
+        <strong>{{ user.recommendedQuest }}</strong>
+        <p>{{ user.recommendedQuestReason }}</p>
+        <a class="quest-dashboard__download-button" routerLink="/profile">Open profile</a>
+      </div>
+    </aside>
+
+    <main class="quest-dashboard__main">
+      <header class="quest-dashboard__topbar">
+        <button class="quest-dashboard__nav-toggle" type="button" (click)="toggleNav()">
+          <span class="quest-dashboard__nav-toggle-icon">{{ navHidden() ? '▣' : '◧' }}</span>
+          <span>{{ navHidden() ? 'Show nav' : 'Hide nav' }}</span>
+        </button>
+
+        <label class="quest-dashboard__search">
+          <span class="quest-dashboard__search-icon">⌕</span>
+          <input type="text" placeholder="Search quest, tool, or task" />
+        </label>
+
+        <div class="quest-dashboard__topbar-actions">
+          <button class="quest-dashboard__action-button" type="button" aria-label="Messages">✉</button>
+          <button class="quest-dashboard__action-button" type="button" aria-label="Alerts">◌</button>
+
+          <div class="quest-dashboard__user-pill">
+            <div class="quest-dashboard__user-avatar" [style.--avatar-glow]="avatar().glow">
+              {{ avatar().emoji }}
+            </div>
+            <div>
+              <strong>{{ displayName() }}</strong>
+              <span>{{ user.email }}</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="quest-dashboard__hero">
+        <div>
+          <p class="quest-dashboard__eyebrow">Dashboard overview</p>
+          <h1 class="quest-dashboard__hero-title">Welcome, {{ displayName() }}</h1>
+          <p class="quest-dashboard__hero-copy">
+            Your StudyQuest dashboard turns your onboarding answers into a route, a focus rhythm,
+            and a tool plan you can actually use.
+          </p>
+        </div>
+
+        <div class="quest-dashboard__hero-buttons">
+          <a class="quest-dashboard__hero-button quest-dashboard__hero-button--primary" routerLink="/profile">
+            Review profile
+          </a>
+          <button class="quest-dashboard__hero-button" type="button">Resume route</button>
+        </div>
+      </section>
+
+      <div class="quest-dashboard__cards">
+        <section class="quest-dashboard__card quest-dashboard__card--profile">
+          <div class="quest-dashboard__profile-avatar" [style.--avatar-glow]="avatar().glow">
+            {{ avatar().emoji }}
+          </div>
+          <strong class="quest-dashboard__profile-name">{{ displayName() }}</strong>
+          <span class="quest-dashboard__profile-role">Study explorer</span>
+
+          <div class="quest-dashboard__profile-stats">
+            <span><b>{{ profileStats().route }}</b> route</span>
+            <span><b>{{ profileStats().focus }}</b> focus</span>
+            <span><b>{{ profileStats().xp }}</b> xp</span>
+          </div>
+        </section>
+
+        <section class="quest-dashboard__card quest-dashboard__card--metric quest-dashboard__card--metric-coral">
+          <p>Prioritized tasks</p>
+          <strong>{{ dashboardStats().priority }}%</strong>
+          <span>Avg. completed</span>
+        </section>
+
+        <section class="quest-dashboard__card quest-dashboard__card--metric quest-dashboard__card--metric-cyan">
+          <p>Additional tasks</p>
+          <strong>{{ dashboardStats().additional }}%</strong>
+          <span>Avg. completed</span>
+        </section>
+
+        <section class="quest-dashboard__card quest-dashboard__card--trackers">
+          <div>
+            <strong>Trackers connected</strong>
+            <p>{{ trackerConnections().length }} active connections</p>
+          </div>
+
+          <div class="quest-dashboard__tracker-row">
+            <span class="quest-dashboard__tracker-chip" *ngFor="let tracker of trackerConnections(); let index = index">
+              <span class="quest-dashboard__tracker-badge" [class.is-alt]="index % 2 === 1">
+                {{ tracker.short }}
+              </span>
+              {{ tracker.label }}
+            </span>
+          </div>
+        </section>
+
+        <section class="quest-dashboard__card quest-dashboard__card--analytics">
+          <div class="quest-dashboard__section-head">
+            <div>
+              <h2>Focusing</h2>
+              <p>Productivity analytics</p>
+            </div>
+            <div class="quest-dashboard__range-pill">Last month</div>
+          </div>
+
+          <div class="quest-dashboard__chart">
+            <svg viewBox="0 0 720 300" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="chartRed" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#ff8b90" />
+                  <stop offset="100%" stop-color="#ff5d77" />
+                </linearGradient>
+                <linearGradient id="chartBlue" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#8e8cff" />
+                  <stop offset="100%" stop-color="#3cbfff" />
+                </linearGradient>
+              </defs>
+              <path
+                class="quest-dashboard__chart-line quest-dashboard__chart-line--soft"
+                d="M20,180 C80,130 130,150 180,205 C240,265 300,95 360,118 C420,145 470,240 530,215 C590,190 640,170 700,195"
+              />
+              <path
+                class="quest-dashboard__chart-line quest-dashboard__chart-line--red"
+                d="M20,200 C95,240 145,90 205,128 C265,167 315,285 380,255 C440,225 500,115 570,98 C630,84 670,110 700,180"
+              />
+              <path
+                class="quest-dashboard__chart-line quest-dashboard__chart-line--blue"
+                d="M20,208 C70,150 135,245 190,212 C250,177 302,128 365,135 C430,142 474,195 535,208 C595,220 650,205 700,112"
+              />
+              <circle cx="365" cy="135" r="10" class="quest-dashboard__chart-node" />
+            </svg>
+
+            <div class="quest-dashboard__chart-callout">
+              <strong>Week 8</strong>
+              <span>Unbalanced</span>
+            </div>
+
+            <div class="quest-dashboard__chart-score">
+              <strong>{{ dashboardStats().focusAverage }}%</strong>
+              <span>Avg. concentration</span>
+            </div>
+          </div>
+
+          <div class="quest-dashboard__chart-legend">
+            <span><i class="is-red"></i> Maximum focus</span>
+            <span><i class="is-blue"></i> Min or lack of focus</span>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <aside class="quest-dashboard__rail">
+      <section class="quest-dashboard__rail-card">
+        <div class="quest-dashboard__section-head quest-dashboard__section-head--tight">
+          <div>
+            <h2>My sessions</h2>
+            <p>Planned study meetings</p>
+          </div>
+          <button class="quest-dashboard__action-button" type="button" aria-label="Calendar">◍</button>
+        </div>
+
+        <div class="quest-dashboard__meeting-list">
+          <article class="quest-dashboard__meeting" *ngFor="let meeting of meetings()">
+            <div class="quest-dashboard__meeting-time">
+              <span>{{ meeting.day }}</span>
+              <strong>{{ meeting.time }}</strong>
+            </div>
+
+            <div class="quest-dashboard__meeting-copy">
+              <strong>{{ meeting.title }}</strong>
+              <span>{{ meeting.channel }}</span>
+            </div>
+
+            <span class="quest-dashboard__meeting-arrow">↗</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="quest-dashboard__rail-card">
+        <div class="quest-dashboard__section-head quest-dashboard__section-head--tight">
+          <div>
+            <h2>Developed areas</h2>
+            <p>Most common areas of interest</p>
+          </div>
+        </div>
+
+        <div class="quest-dashboard__area-list">
+          <article class="quest-dashboard__area" *ngFor="let area of developedAreas()">
+            <div class="quest-dashboard__area-row">
+              <strong>{{ area.label }}</strong>
+              <span>{{ area.value }}%</span>
+            </div>
+
+            <div class="quest-dashboard__area-bar">
+              <span class="quest-dashboard__area-fill" [style.width.%]="area.value"></span>
+            </div>
+
+            <span class="quest-dashboard__area-trend" [class.is-down]="area.direction === 'down'">
+              {{ area.direction === 'up' ? '↗' : '↘' }}
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <section class="quest-dashboard__rail-card quest-dashboard__rail-card--route">
+        <div class="quest-dashboard__section-head quest-dashboard__section-head--tight">
+          <div>
+            <h2>Starter toolkit</h2>
+            <p>What this route unlocks first</p>
+          </div>
+        </div>
+
+        <div class="quest-dashboard__tool-list">
+          <article class="quest-dashboard__tool" *ngFor="let item of toolUnlocks()">
+            <span class="quest-dashboard__tool-icon" [class.is-lime]="item.tone === 'lime'" [class.is-magenta]="item.tone === 'magenta'">
+              {{ item.icon }}
+            </span>
+            <div>
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.copy }}</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </aside>
+  </div>
+</section>
+
+<ng-template #loadingState>
+  <section class="quest-dashboard quest-dashboard--loading">
+    <div class="quest-dashboard__scene" aria-hidden="true">
+      <div class="quest-dashboard__grid"></div>
+    </div>
+
+    <div class="quest-dashboard__loading-card">
+      <p class="quest-dashboard__eyebrow">Opening dashboard</p>
+      <h1>Loading your personalised StudyQuest setup...</h1>
+    </div>
+  </section>
+</ng-template>

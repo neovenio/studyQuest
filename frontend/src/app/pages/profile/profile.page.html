@@ -1,0 +1,170 @@
+<section class="page-shell">
+  <div class="page-grid profile-layout" *ngIf="!loading(); else loadingState">
+    <article class="hero-card profile-summary" *ngIf="currentUser() as user">
+      <div class="summary-top">
+        <span class="step-pill">Profile forge</span>
+        <button class="button ghost" type="button" (click)="logout()">Log out</button>
+      </div>
+
+      <div class="avatar-hero" [style.--avatar-glow]="selectedAvatar.glow">
+        <div class="avatar-badge">{{ selectedAvatar.emoji }}</div>
+        <div>
+          <p class="eyebrow">Profile and preferences</p>
+          <h1 class="display-title profile-title">{{ user.name }}</h1>
+          <p class="body-copy">@{{ user.username }} · {{ user.email }}</p>
+        </div>
+      </div>
+
+      <p class="body-copy bio-copy">
+        {{ user.bio || 'Add a short description so your profile feels more personal.' }}
+      </p>
+
+      <div class="chip-row">
+        <span class="chip" *ngFor="let item of optionSummary">{{ item }}</span>
+      </div>
+
+      <div class="recommendation-card">
+        <p class="eyebrow">Recommended first quest</p>
+        <h2 class="section-title">{{ user.recommendedQuest }}</h2>
+        <p class="body-copy">{{ user.recommendedQuestReason }}</p>
+      </div>
+    </article>
+
+    <form class="surface-card form-card" [formGroup]="form" (ngSubmit)="save()">
+      <div>
+        <p class="eyebrow">Editable profile</p>
+        <h2 class="section-title">Make StudyQuest feel like your space.</h2>
+      </div>
+
+      <div class="field-grid dual-grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" class="text-input" type="text" formControlName="name" />
+        </div>
+
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" class="text-input" type="text" formControlName="username" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bio">Description about you</label>
+        <textarea
+          id="bio"
+          class="textarea-input"
+          formControlName="bio"
+          placeholder="A short intro, favorite subjects, study habits, or goals..."
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label>Choose a profile picture</label>
+        <div class="avatar-grid">
+          <label class="avatar-choice" *ngFor="let avatar of avatarOptions">
+            <input
+              class="choice-input"
+              type="radio"
+              formControlName="profilePicture"
+              [value]="avatar.value"
+            />
+            <span class="avatar-card" [style.--avatar-glow]="avatar.glow">
+              <span class="avatar-icon">{{ avatar.emoji }}</span>
+              <span class="choice-title">{{ avatar.label }}</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="themePreference">Theme</label>
+        <select
+          id="themePreference"
+          class="select-input"
+          formControlName="themePreference"
+          (change)="previewThemePreference()"
+        >
+          <option *ngFor="let option of themePreferenceOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <p class="hint-text">
+          Choose light mode, dark mode, or let StudyQuest follow your device automatically.
+        </p>
+      </div>
+
+      <div class="field-grid dual-grid">
+        <div class="field">
+          <label for="mainGoal">Main goal</label>
+          <select id="mainGoal" class="select-input" formControlName="mainGoal">
+            <option value="">Choose one</option>
+            <option *ngFor="let option of mainGoalOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="biggestStruggle">Biggest struggle</label>
+          <select id="biggestStruggle" class="select-input" formControlName="biggestStruggle">
+            <option value="">Choose one</option>
+            <option *ngFor="let option of biggestStruggleOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-grid dual-grid">
+        <div class="field">
+          <label for="whatTheyStudy">What you study</label>
+          <select id="whatTheyStudy" class="select-input" formControlName="whatTheyStudy">
+            <option value="">Choose one</option>
+            <option *ngFor="let option of studyTopicOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="preferredSessionLength">Preferred session length</label>
+          <select
+            id="preferredSessionLength"
+            class="select-input"
+            formControlName="preferredSessionLength"
+          >
+            <option value="">Choose one</option>
+            <option *ngFor="let option of sessionLengthOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <p class="feedback error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+      <p class="feedback success" *ngIf="successMessage()">{{ successMessage() }}</p>
+
+      <div class="path-meter">
+        <span class="path-fill" style="width: 82%"></span>
+      </div>
+
+      <div class="button-row">
+        <button class="button primary" type="submit" [disabled]="saving()">
+          {{ saving() ? 'Saving...' : 'Save profile' }}
+        </button>
+        <a class="button secondary" routerLink="/">Back to welcome</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<ng-template #loadingState>
+  <section class="page-shell">
+    <div class="page-grid">
+      <article class="surface-card loading-card">
+        <p class="eyebrow">Loading your profile</p>
+        <h1 class="section-title">Getting your StudyQuest setup ready...</h1>
+      </article>
+    </div>
+  </section>
+</ng-template>

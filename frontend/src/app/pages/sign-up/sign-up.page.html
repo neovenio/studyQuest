@@ -1,0 +1,111 @@
+<section class="auth-page">
+  <div class="auth-frame">
+    <div class="auth-surface">
+      <section class="auth-form-panel">
+        <a class="auth-brand" routerLink="/">
+          <span class="auth-brand__mark" aria-hidden="true"></span>
+          <span class="auth-brand__wordmark">STUDYQUEST</span>
+        </a>
+
+        <div class="auth-form-wrap">
+          <div class="auth-copy">
+            <h1 class="auth-title">Create your account</h1>
+            <p class="auth-text">
+              Sign up for a new StudyQuest account. Right after this,
+              we'll guide you into your onboarding questionnaire.
+            </p>
+          </div>
+
+          <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="field-grid">
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  class="text-input auth-input"
+                  type="email"
+                  formControlName="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="field">
+                <label for="password">Password</label>
+                <input
+                  id="password"
+                  class="text-input auth-input"
+                  [type]="showPasswords() ? 'text' : 'password'"
+                  formControlName="password"
+                  placeholder="Choose a password"
+                />
+              </div>
+
+              <div class="field">
+                <label for="confirmPassword">Confirm password</label>
+                <input
+                  id="confirmPassword"
+                  class="text-input auth-input"
+                  [type]="showPasswords() ? 'text' : 'password'"
+                  formControlName="confirmPassword"
+                  placeholder="Type it again"
+                />
+              </div>
+            </div>
+
+            <div class="auth-meta-row">
+              <label class="remember-toggle">
+                <input type="checkbox" [checked]="showPasswords()" (change)="toggleShowPasswords()" />
+                <span>Show password</span>
+              </label>
+            </div>
+
+            <p class="feedback error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+            <button class="auth-submit" type="submit" [disabled]="isSubmitting()">
+              {{ isSubmitting() ? 'Creating account...' : 'Create account' }}
+            </button>
+
+            <p class="auth-switch-copy">
+              Already have an account?
+              <a routerLink="/login">Log In.</a>
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <aside class="auth-showcase-panel">
+        <div class="auth-showcase-copy">
+          <h2 class="auth-showcase-title">Start your study journey with a smarter route.</h2>
+          <p class="auth-showcase-text">
+            Create your account, answer a few quick questions, and unlock a dashboard that adapts
+            to how you learn best.
+          </p>
+        </div>
+
+        <div class="auth-preview-board">
+          <div class="auth-preview-top">
+            <article class="preview-stat preview-stat--primary">
+              <span>Quest XP</span>
+              <strong>+120</strong>
+            </article>
+            <article class="preview-stat">
+              <span>First unlock</span>
+              <strong>Recall</strong>
+            </article>
+            <article class="preview-stat">
+              <span>Focus block</span>
+              <strong>25m</strong>
+            </article>
+          </div>
+
+          <div class="auth-preview-chart"></div>
+
+          <article class="auth-preview-recommendation">
+            <span>Starter route</span>
+            <strong>Build your personalized onboarding path and unlock your first focus tools.</strong>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

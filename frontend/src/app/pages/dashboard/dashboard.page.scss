@@ -1,0 +1,1050 @@
+.quest-dashboard {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 26px;
+  color: #f8fbff;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(0, 255, 255, 0.12), transparent 18%),
+    radial-gradient(circle at 86% 14%, rgba(25, 25, 112, 0.24), transparent 22%),
+    radial-gradient(circle at 74% 82%, rgba(204, 255, 0, 0.08), transparent 18%),
+    linear-gradient(180deg, #090a0d 0%, #101217 34%, #161a20 100%);
+}
+
+.quest-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(7, 8, 12, 0.36)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: auto, 36px 36px, 36px 36px;
+  pointer-events: none;
+}
+
+.quest-dashboard__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.quest-dashboard__grid {
+  position: absolute;
+  inset: 4% 2.8%;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 18%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, 24px 24px, 24px 24px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.84), transparent 94%);
+}
+
+.quest-dashboard__glow {
+  position: absolute;
+  filter: blur(36px);
+  opacity: 0.9;
+}
+
+.quest-dashboard__glow--cyan {
+  width: 240px;
+  height: 240px;
+  left: 20%;
+  top: 18%;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.12);
+}
+
+.quest-dashboard__glow--lime {
+  width: 260px;
+  height: 260px;
+  right: 24%;
+  bottom: 20%;
+  border-radius: 50%;
+  background: rgba(204, 255, 0, 0.08);
+}
+
+.quest-dashboard__glow--magenta {
+  width: 180px;
+  height: 180px;
+  right: 12%;
+  top: 24%;
+  border-radius: 50%;
+  background: rgba(255, 0, 255, 0.12);
+}
+
+.quest-dashboard__error,
+.quest-dashboard__layout,
+.quest-dashboard__loading-card {
+  position: relative;
+  z-index: 1;
+}
+
+.quest-dashboard__error {
+  margin: 0 auto 20px;
+  width: min(1400px, 100%);
+}
+
+.quest-dashboard__layout {
+  width: min(1780px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 360px;
+  gap: 22px;
+}
+
+.quest-dashboard__layout.is-nav-hidden {
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.quest-dashboard__sidebar,
+.quest-dashboard__topbar,
+.quest-dashboard__hero,
+.quest-dashboard__card,
+.quest-dashboard__rail-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(10, 13, 19, 0.88);
+  box-shadow:
+    0 24px 54px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.quest-dashboard__sidebar {
+  min-height: calc(100dvh - 52px);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.quest-dashboard__sidebar.is-hidden {
+  display: none;
+}
+
+.quest-dashboard__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #f7f5ed;
+}
+
+.quest-dashboard__brand-mark {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+
+.quest-dashboard__brand-mark::before,
+.quest-dashboard__brand-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid #00ffff;
+  border-radius: 10px;
+  transform: rotate(45deg) scale(0.76);
+}
+
+.quest-dashboard__brand-mark::after {
+  inset: 7px;
+  border-color: #ccff00;
+  opacity: 0.78;
+}
+
+.quest-dashboard__brand-label {
+  font-family: "Pixelify Sans", "Press Start 2P Local", monospace !important;
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.quest-dashboard__sidebar-group {
+  display: grid;
+  gap: 10px;
+}
+
+.quest-dashboard__sidebar-group--general {
+  margin-top: auto;
+}
+
+.quest-dashboard__sidebar-title {
+  margin: 0 0 8px;
+  color: rgba(232, 238, 252, 0.48);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.quest-dashboard__nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 14px;
+  border-radius: 18px;
+  color: rgba(241, 246, 255, 0.82);
+  font-weight: 600;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.quest-dashboard__nav-item:hover {
+  transform: translateX(2px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.quest-dashboard__nav-item.is-active {
+  background:
+    linear-gradient(135deg, rgba(0, 255, 255, 0.16), rgba(204, 255, 0, 0.12)),
+    rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  box-shadow: inset 3px 0 0 #00ffff;
+}
+
+.quest-dashboard__nav-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  color: #00ffff;
+  font-size: 1rem;
+}
+
+.quest-dashboard__download-card {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at top right, rgba(204, 255, 0, 0.12), transparent 26%),
+    radial-gradient(circle at bottom left, rgba(0, 255, 255, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(7, 11, 16, 0.86);
+}
+
+.quest-dashboard__download-kicker,
+.quest-dashboard__eyebrow {
+  margin: 0;
+  color: #ffb01f;
+  font-family: var(--font-pixel-ui);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.quest-dashboard__download-card strong {
+  color: #ffffff;
+  font-size: 1.16rem;
+  line-height: 1.3;
+}
+
+.quest-dashboard__download-card p {
+  margin: 0;
+  color: rgba(232, 238, 252, 0.7);
+  line-height: 1.55;
+}
+
+.quest-dashboard__download-button,
+.quest-dashboard__hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.quest-dashboard__download-button {
+  margin-top: 4px;
+  background: linear-gradient(135deg, #ff8b2a 0%, #ff6b00 100%);
+  color: #130d00;
+}
+
+.quest-dashboard__main {
+  display: grid;
+  gap: 22px;
+}
+
+.quest-dashboard__topbar,
+.quest-dashboard__hero,
+.quest-dashboard__rail-card {
+  padding: 22px 24px;
+}
+
+.quest-dashboard__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.quest-dashboard__nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #f4f8ff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quest-dashboard__nav-toggle-icon {
+  color: #00ffff;
+  font-size: 1rem;
+}
+
+.quest-dashboard__search {
+  flex: 1 1 auto;
+  max-width: 470px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.quest-dashboard__search input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  color: #ffffff;
+  background: transparent;
+}
+
+.quest-dashboard__search input::placeholder {
+  color: rgba(228, 235, 250, 0.44);
+}
+
+.quest-dashboard__search-icon {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.3rem;
+}
+
+.quest-dashboard__topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.quest-dashboard__action-button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #f5f8ff;
+}
+
+.quest-dashboard__user-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px 8px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.quest-dashboard__user-pill strong,
+.quest-dashboard__user-pill span {
+  display: block;
+}
+
+.quest-dashboard__user-pill strong {
+  color: #ffffff;
+  font-size: 0.98rem;
+}
+
+.quest-dashboard__user-pill span {
+  color: rgba(229, 235, 248, 0.56);
+  font-size: 0.86rem;
+}
+
+.quest-dashboard__user-avatar,
+.quest-dashboard__profile-avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(255, 245, 223, 0.72));
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--avatar-glow) 32%, transparent);
+}
+
+.quest-dashboard__user-avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 1.28rem;
+}
+
+.quest-dashboard__hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+}
+
+.quest-dashboard__hero-title {
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.quest-dashboard__hero-copy {
+  margin: 14px 0 0;
+  max-width: 46rem;
+  color: rgba(233, 239, 252, 0.7);
+  line-height: 1.65;
+}
+
+.quest-dashboard__hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.quest-dashboard__hero-button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #f6f8ff;
+}
+
+.quest-dashboard__hero-button--primary {
+  border: 0;
+  background: linear-gradient(135deg, #ff8b2a 0%, #ff6b00 100%);
+  color: #130d00;
+  box-shadow:
+    0 18px 30px rgba(255, 107, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.quest-dashboard__cards {
+  display: grid;
+  grid-template-columns: 0.95fr 1.1fr 1.1fr;
+  gap: 22px;
+}
+
+.quest-dashboard__card {
+  padding: 24px;
+}
+
+.quest-dashboard__card--profile {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.quest-dashboard__profile-avatar {
+  width: 118px;
+  height: 118px;
+  font-size: 3rem;
+}
+
+.quest-dashboard__profile-name {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.quest-dashboard__profile-role {
+  color: rgba(230, 236, 249, 0.6);
+  font-size: 1rem;
+}
+
+.quest-dashboard__profile-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: auto;
+}
+
+.quest-dashboard__profile-stats span {
+  padding: 12px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(237, 242, 255, 0.72);
+  font-size: 0.88rem;
+}
+
+.quest-dashboard__profile-stats b {
+  color: #ffffff;
+}
+
+.quest-dashboard__card--metric {
+  min-height: 220px;
+  display: grid;
+  align-content: space-between;
+}
+
+.quest-dashboard__card--metric p,
+.quest-dashboard__card--metric span {
+  margin: 0;
+}
+
+.quest-dashboard__card--metric p {
+  color: #101318;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.quest-dashboard__card--metric strong {
+  color: #101318;
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.quest-dashboard__card--metric span {
+  color: rgba(16, 19, 24, 0.7);
+  font-size: 1rem;
+}
+
+.quest-dashboard__card--metric-coral {
+  background:
+    radial-gradient(circle at 24% 84%, rgba(255, 111, 130, 0.3), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(255, 157, 98, 0.34), transparent 24%),
+    linear-gradient(135deg, rgba(229, 219, 255, 0.9), rgba(255, 193, 184, 0.92));
+}
+
+.quest-dashboard__card--metric-cyan {
+  background:
+    radial-gradient(circle at 18% 44%, rgba(0, 255, 255, 0.24), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(111, 161, 255, 0.32), transparent 24%),
+    linear-gradient(135deg, rgba(198, 245, 255, 0.94), rgba(189, 214, 255, 0.94));
+}
+
+.quest-dashboard__card--trackers {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.quest-dashboard__card--trackers strong {
+  color: #ffffff;
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.quest-dashboard__card--trackers p {
+  margin: 6px 0 0;
+  color: rgba(230, 236, 249, 0.6);
+}
+
+.quest-dashboard__tracker-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.quest-dashboard__tracker-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(241, 246, 255, 0.84);
+  font-size: 0.9rem;
+}
+
+.quest-dashboard__tracker-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+  color: #00ffff;
+  font-family: var(--font-pixel-ui);
+  font-size: 0.82rem;
+}
+
+.quest-dashboard__tracker-badge.is-alt {
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.18), rgba(255, 255, 255, 0.08));
+  color: #ff9fff;
+}
+
+.quest-dashboard__card--analytics {
+  grid-column: span 3;
+  display: grid;
+  gap: 20px;
+}
+
+.quest-dashboard__section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.quest-dashboard__section-head--tight {
+  align-items: center;
+}
+
+.quest-dashboard__section-head h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.quest-dashboard__section-head p {
+  margin: 6px 0 0;
+  color: rgba(230, 236, 249, 0.6);
+}
+
+.quest-dashboard__range-pill {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f3f7ff;
+  font-weight: 600;
+}
+
+.quest-dashboard__chart {
+  position: relative;
+  min-height: 360px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.05), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
+    rgba(8, 11, 16, 0.82);
+  overflow: hidden;
+}
+
+.quest-dashboard__chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quest-dashboard__chart-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+.quest-dashboard__chart-line--soft {
+  stroke: rgba(201, 203, 255, 0.22);
+  stroke-width: 4;
+}
+
+.quest-dashboard__chart-line--red {
+  stroke: url(#chartRed);
+}
+
+.quest-dashboard__chart-line--blue {
+  stroke: url(#chartBlue);
+}
+
+.quest-dashboard__chart-node {
+  fill: #ffffff;
+  stroke: #7b76ff;
+  stroke-width: 3;
+}
+
+.quest-dashboard__chart-callout,
+.quest-dashboard__chart-score {
+  position: absolute;
+  padding: 16px 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.quest-dashboard__chart-callout {
+  left: 34%;
+  top: 36px;
+  display: grid;
+  gap: 4px;
+}
+
+.quest-dashboard__chart-callout strong {
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.quest-dashboard__chart-callout span {
+  color: rgba(235, 240, 255, 0.64);
+}
+
+.quest-dashboard__chart-score {
+  right: 24px;
+  bottom: 22px;
+  display: grid;
+  justify-items: end;
+  text-align: right;
+}
+
+.quest-dashboard__chart-score strong {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 4vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.quest-dashboard__chart-score span {
+  color: rgba(230, 236, 249, 0.6);
+}
+
+.quest-dashboard__chart-legend {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  color: rgba(232, 238, 252, 0.74);
+}
+
+.quest-dashboard__chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quest-dashboard__chart-legend i {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.quest-dashboard__chart-legend i.is-red {
+  background: linear-gradient(135deg, #ff8b90, #ff5d77);
+}
+
+.quest-dashboard__chart-legend i.is-blue {
+  background: linear-gradient(135deg, #8e8cff, #3cbfff);
+}
+
+.quest-dashboard__rail {
+  display: grid;
+  gap: 22px;
+}
+
+.quest-dashboard__meeting-list,
+.quest-dashboard__area-list,
+.quest-dashboard__tool-list {
+  display: grid;
+  gap: 18px;
+}
+
+.quest-dashboard__meeting {
+  display: grid;
+  grid-template-columns: 116px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quest-dashboard__meeting:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.quest-dashboard__meeting-time span,
+.quest-dashboard__meeting-copy span {
+  display: block;
+}
+
+.quest-dashboard__meeting-time span,
+.quest-dashboard__meeting-copy span {
+  color: rgba(230, 236, 249, 0.54);
+}
+
+.quest-dashboard__meeting-time strong,
+.quest-dashboard__meeting-copy strong {
+  color: #ffffff;
+}
+
+.quest-dashboard__meeting-time strong {
+  margin-top: 8px;
+  display: block;
+  font-size: 1.02rem;
+}
+
+.quest-dashboard__meeting-copy strong {
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.quest-dashboard__meeting-copy span {
+  margin-top: 6px;
+}
+
+.quest-dashboard__meeting-arrow {
+  color: #f8fbff;
+  font-size: 1.4rem;
+}
+
+.quest-dashboard__area {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'row trend'
+    'bar trend';
+  gap: 10px 14px;
+  align-items: center;
+}
+
+.quest-dashboard__area-row {
+  grid-area: row;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.quest-dashboard__area-row strong,
+.quest-dashboard__area-row span {
+  color: #ffffff;
+}
+
+.quest-dashboard__area-bar {
+  grid-area: bar;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.quest-dashboard__area-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #4a8fff 0%, #00d3ff 100%);
+}
+
+.quest-dashboard__area-trend {
+  grid-area: trend;
+  color: #ff9b38;
+  font-size: 1.18rem;
+}
+
+.quest-dashboard__area-trend.is-down {
+  color: #ff6a7f;
+}
+
+.quest-dashboard__rail-card--route .quest-dashboard__tool {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.quest-dashboard__tool-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  color: #00ffff;
+  font-size: 1.1rem;
+}
+
+.quest-dashboard__tool-icon.is-lime {
+  background: linear-gradient(135deg, rgba(204, 255, 0, 0.18), rgba(255, 255, 255, 0.06));
+  color: #ccff00;
+}
+
+.quest-dashboard__tool-icon.is-magenta {
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.18), rgba(255, 255, 255, 0.06));
+  color: #ffb8ff;
+}
+
+.quest-dashboard__tool strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.quest-dashboard__tool p {
+  margin: 0;
+  color: rgba(230, 236, 249, 0.64);
+  line-height: 1.55;
+}
+
+.quest-dashboard--loading {
+  display: grid;
+  place-items: center;
+}
+
+.quest-dashboard__loading-card {
+  width: min(720px, calc(100% - 48px));
+  padding: 36px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(10, 13, 19, 0.88);
+  text-align: center;
+}
+
+.quest-dashboard__loading-card h1 {
+  margin: 10px 0 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+@media (max-width: 1450px) {
+  .quest-dashboard__layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .quest-dashboard__layout.is-nav-hidden {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quest-dashboard__rail {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  .quest-dashboard__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quest-dashboard__card--profile {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+
+  .quest-dashboard__card--trackers,
+  .quest-dashboard__card--analytics {
+    grid-column: 1 / -1;
+  }
+
+  .quest-dashboard__hero {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .quest-dashboard__rail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+  .quest-dashboard {
+    padding: 18px;
+  }
+
+  .quest-dashboard__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-dashboard__layout.is-nav-hidden {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-dashboard__sidebar {
+    min-height: auto;
+  }
+
+  .quest-dashboard__topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quest-dashboard__search {
+    max-width: none;
+  }
+
+  .quest-dashboard__topbar-actions {
+    justify-content: space-between;
+  }
+
+  .quest-dashboard__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-dashboard__card--trackers {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .quest-dashboard__tracker-row {
+    justify-content: flex-start;
+  }
+
+  .quest-dashboard__card--analytics {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .quest-dashboard {
+    padding: 14px;
+  }
+
+  .quest-dashboard__sidebar,
+  .quest-dashboard__topbar,
+  .quest-dashboard__hero,
+  .quest-dashboard__card,
+  .quest-dashboard__rail-card {
+    border-radius: 24px;
+  }
+
+  .quest-dashboard__meeting {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-dashboard__meeting-arrow {
+    display: none;
+  }
+
+  .quest-dashboard__chart {
+    min-height: 300px;
+  }
+
+  .quest-dashboard__chart-callout {
+    left: 18px;
+    top: 18px;
+  }
+
+  .quest-dashboard__chart-score {
+    right: 16px;
+    bottom: 16px;
+  }
+}

@@ -1,0 +1,105 @@
+<section class="auth-page">
+  <div class="auth-frame">
+    <div class="auth-surface">
+      <section class="auth-form-panel">
+        <a class="auth-brand" routerLink="/">
+          <span class="auth-brand__mark" aria-hidden="true"></span>
+          <span class="auth-brand__wordmark">STUDYQUEST</span>
+        </a>
+
+        <div class="auth-form-wrap">
+          <div class="auth-copy">
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-text">
+              Log back into StudyQuest to pick up your route, tools, and personalized study plan.
+            </p>
+          </div>
+
+          <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="field-grid">
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  class="text-input auth-input"
+                  type="email"
+                  formControlName="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="field">
+                <label for="password">Password</label>
+                <div class="auth-input-wrap">
+                  <input
+                    id="password"
+                    class="text-input auth-input"
+                    [type]="showPassword() ? 'text' : 'password'"
+                    formControlName="password"
+                    placeholder="Enter your password"
+                  />
+                  <button class="auth-eye" type="button" (click)="toggleShowPassword()">
+                    {{ showPassword() ? 'Hide' : 'Show' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-meta-row">
+              <label class="remember-toggle">
+                <input type="checkbox" />
+                <span>Remember Me</span>
+              </label>
+              <a class="auth-inline-link" routerLink="/sign-up">Forgot Your Password?</a>
+            </div>
+
+            <p class="feedback error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+            <button class="auth-submit" type="submit" [disabled]="isSubmitting()">
+              {{ isSubmitting() ? 'Logging in...' : 'Log In' }}
+            </button>
+
+            <p class="auth-switch-copy">
+              New here?
+              <a routerLink="/sign-up">Create your account.</a>
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <aside class="auth-showcase-panel">
+        <div class="auth-showcase-copy">
+          <h2 class="auth-showcase-title">Jump back into your focus streak.</h2>
+          <p class="auth-showcase-text">
+            Your dashboard is ready with your unlocked tools, saved preferences, and the next best
+            quest to keep your momentum going.
+          </p>
+        </div>
+
+        <div class="auth-preview-board">
+          <div class="auth-preview-top">
+            <article class="preview-stat preview-stat--primary">
+              <span>Current streak</span>
+              <strong>12 days</strong>
+            </article>
+            <article class="preview-stat">
+              <span>Focus block</span>
+              <strong>25m</strong>
+            </article>
+            <article class="preview-stat">
+              <span>Next quest</span>
+              <strong>Pomodoro</strong>
+            </article>
+          </div>
+
+          <div class="auth-preview-chart"></div>
+
+          <article class="auth-preview-recommendation">
+            <span>Resume route</span>
+            <strong>Open your dashboard to continue your streak, review your focus stats, and jump into your next unlock.</strong>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
