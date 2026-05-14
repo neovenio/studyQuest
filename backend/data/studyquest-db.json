@@ -87,6 +87,24 @@
       "biggestStruggle": "focus",
       "whatTheyStudy": "school-subjects",
       "preferredSessionLength": "15"
+    },
+    {
+      "id": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "name": "Neovenio",
+      "username": "neovenio-2",
+      "email": "neovenio@gmail.com",
+      "passwordHash": "197a60de603a4c3d8f9d2238d74ffb22:662032fa963c4356c187386da1c7066be167d36973f2012f704a4abebe84b64562803f368694dc8b2c0720ebd69c628b15b2a4c0e83a7c1dff298ce3ef4c0d9d",
+      "bio": "",
+      "profilePicture": "comet",
+      "themePreference": "system",
+      "onboardingCompleted": true,
+      "onboardingSkipped": false,
+      "createdAt": "2026-05-14T08:18:49.435Z",
+      "updatedAt": "2026-05-14T08:20:32.773Z",
+      "mainGoal": "better-grades",
+      "biggestStruggle": "starting",
+      "whatTheyStudy": "school-subjects",
+      "preferredSessionLength": "15"
     }
   ],
   "sessions": [
@@ -111,9 +129,14 @@
       "createdAt": "2026-05-14T05:53:07.578Z"
     },
     {
-      "token": "789fcf437348feba2c929803d46afd51185d5a64515e6e95",
-      "userId": "395454d9-ee13-4431-af54-4a9573a0e179",
-      "createdAt": "2026-05-14T06:09:01.680Z"
+      "token": "8f69f81c502b4f38bf8ca2728d7714ec67aacfbcc743968e",
+      "userId": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "createdAt": "2026-05-14T08:18:49.436Z"
+    },
+    {
+      "token": "07d461cf2980a5343abae0cf6919472befd2c68ed0b48f69",
+      "userId": "2758a51d-a96b-4040-a9ff-1a034a1da2e0",
+      "createdAt": "2026-05-14T08:20:05.324Z"
     }
   ]
 }
