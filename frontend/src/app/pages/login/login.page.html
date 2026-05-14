@@ -1,0 +1,107 @@
+<section class="auth-page">
+  <div class="auth-frame">
+    <div class="auth-surface">
+      <section class="auth-form-panel">
+        <a class="auth-brand" routerLink="/">
+          <span class="auth-brand__mark" aria-hidden="true"></span>
+          <span class="auth-brand__wordmark">StudyQuest</span>
+        </a>
+
+        <div class="auth-form-wrap">
+          <div class="auth-copy">
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-text">
+              Enter your email and password to access your StudyQuest account and continue your
+              personalized study journey.
+            </p>
+          </div>
+
+          <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="field-grid">
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  class="text-input auth-input"
+                  type="email"
+                  formControlName="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="field">
+                <label for="password">Password</label>
+                <div class="auth-input-wrap">
+                  <input
+                    id="password"
+                    class="text-input auth-input"
+                    [type]="showPassword() ? 'text' : 'password'"
+                    formControlName="password"
+                    placeholder="Enter your password"
+                  />
+                  <button class="auth-eye" type="button" (click)="toggleShowPassword()">
+                    {{ showPassword() ? 'Hide' : 'Show' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-meta-row">
+              <label class="remember-toggle">
+                <input type="checkbox" />
+                <span>Remember Me</span>
+              </label>
+              <a class="auth-inline-link" routerLink="/sign-up">Forgot Your Password?</a>
+            </div>
+
+            <p class="feedback error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+            <button class="auth-submit" type="submit" [disabled]="isSubmitting()">
+              {{ isSubmitting() ? 'Logging in...' : 'Log In' }}
+            </button>
+
+            <p class="auth-switch-copy">
+              Don't Have An Account?
+              <a routerLink="/sign-up">Register Now.</a>
+            </p>
+          </form>
+        </div>
+
+      </section>
+
+      <aside class="auth-showcase-panel">
+        <div class="auth-showcase-copy">
+          <h2 class="auth-showcase-title">Effortlessly manage your study route and goals.</h2>
+          <p class="auth-showcase-text">
+            Log in to access your StudyQuest dashboard and continue with the methods, tools, and
+            recommendations built around you.
+          </p>
+        </div>
+
+        <div class="auth-preview-board">
+          <div class="auth-preview-top">
+            <article class="preview-stat preview-stat--primary">
+              <span>Quest XP</span>
+              <strong>189,374</strong>
+            </article>
+            <article class="preview-stat">
+              <span>Focus Time</span>
+              <strong>00:01:30</strong>
+            </article>
+            <article class="preview-stat">
+              <span>Study Route</span>
+              <strong>Weekly</strong>
+            </article>
+          </div>
+
+          <div class="auth-preview-chart"></div>
+
+          <article class="auth-preview-recommendation">
+            <span>Sales categories</span>
+            <strong>Track your study methods, tools, and streaks from one dashboard.</strong>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
